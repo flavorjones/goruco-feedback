@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Years using ruby:</strong>
+  <%= @response.years_using_ruby %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @response.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @response.state %>
+</p>
+
+<p>
+  <strong>Stay:</strong>
+  <%= @response.stay %>
+</p>
+
+<p>
+  <strong>Thoughts:</strong>
+  <%= @response.thoughts %>
+</p>
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

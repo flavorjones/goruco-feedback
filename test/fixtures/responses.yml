@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  years_using_ruby: MyString
+  city: MyString
+  state: MyString
+  stay: MyString
+  thoughts: MyText
+
+two:
+  years_using_ruby: MyString
+  city: MyString
+  state: MyString
+  stay: MyString
+  thoughts: MyText

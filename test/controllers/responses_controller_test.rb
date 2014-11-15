@@ -18,7 +18,13 @@ class ResponsesControllerTest < ActionController::TestCase
 
   test "should create response" do
     assert_difference('Response.count') do
-      post :create, response: { city: @goruco_response.city, state: @goruco_response.state, stay: @goruco_response.stay, thoughts: @goruco_response.thoughts, years_using_ruby: @goruco_response.years_using_ruby }
+      post :create, response: {
+        city: @goruco_response.city,
+        state: @goruco_response.state,
+        stay: @goruco_response.stay,
+        thoughts: @goruco_response.thoughts,
+        years_using_ruby: @goruco_response.years_using_ruby
+      }
     end
 
     assert_redirected_to response_path(assigns(:response))

@@ -21,6 +21,12 @@
 </p>
 
 <p>
+  <% @response.talk_responses.each do |talk_response| %>
+    <%= talk_response.talk.speaker %>
+  <% end %>
+</p>
+
+<p>
   <strong>Thoughts:</strong>
   <%= @response.thoughts %>
 </p>

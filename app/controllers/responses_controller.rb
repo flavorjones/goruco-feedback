@@ -15,6 +15,9 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   def new
     @response = Response.new
+    Talk.all.each do |talk|
+      @response.talk_responses.build talk: talk
+    end
   end
 
   # GET /responses/1/edit
@@ -24,7 +27,9 @@ class ResponsesController < ApplicationController
   # POST /responses
   # POST /responses.json
   def create
+    puts response_params.inspect
     @response = Response.new(response_params)
+    puts @response.inspect
 
     respond_to do |format|
       if @response.save
@@ -69,6 +74,9 @@ class ResponsesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:years_using_ruby, :city, :state, :stay, :thoughts)
+      params.require(:response).permit(:years_using_ruby, :city, :state, :stay, :thoughts,
+        talk_responses_attributes: [
+          :score, :comment, :talk_id, :id
+        ])
     end
 end

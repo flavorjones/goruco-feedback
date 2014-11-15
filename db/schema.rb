@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114020216) do
+ActiveRecord::Schema.define(version: 20141114135923) do
 
   create_table "responses", force: true do |t|
     t.string   "years_using_ruby"
@@ -23,13 +23,15 @@ ActiveRecord::Schema.define(version: 20141114020216) do
     t.datetime "updated_at"
   end
 
-  create_table "responses_talks", id: false, force: true do |t|
-    t.integer "talk_id",     null: false
-    t.integer "response_id", null: false
+  create_table "talk_responses", force: true do |t|
+    t.integer "talk_id"
+    t.integer "response_id"
+    t.integer "score"
+    t.text    "comment"
   end
 
-  add_index "responses_talks", ["response_id", "talk_id"], name: "index_responses_talks_on_response_id_and_talk_id"
-  add_index "responses_talks", ["talk_id", "response_id"], name: "index_responses_talks_on_talk_id_and_response_id"
+  add_index "talk_responses", ["response_id", "talk_id"], name: "index_talk_responses_on_response_id_and_talk_id"
+  add_index "talk_responses", ["talk_id", "response_id"], name: "index_talk_responses_on_talk_id_and_response_id"
 
   create_table "talks", force: true do |t|
     t.string   "speaker"

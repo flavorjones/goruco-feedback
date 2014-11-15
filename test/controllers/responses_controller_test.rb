@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ResponsesControllerTest < ActionController::TestCase
   setup do
-    @response = responses(:one)
+    @goruco_response = responses(:one)
   end
 
   test "should get index" do
@@ -18,30 +18,30 @@ class ResponsesControllerTest < ActionController::TestCase
 
   test "should create response" do
     assert_difference('Response.count') do
-      post :create, response: { city: @response.city, state: @response.state, stay: @response.stay, thoughts: @response.thoughts, years_using_ruby: @response.years_using_ruby }
+      post :create, response: { city: @goruco_response.city, state: @goruco_response.state, stay: @goruco_response.stay, thoughts: @goruco_response.thoughts, years_using_ruby: @goruco_response.years_using_ruby }
     end
 
     assert_redirected_to response_path(assigns(:response))
   end
 
   test "should show response" do
-    get :show, id: @response
+    get :show, id: @goruco_response
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @response
+    get :edit, id: @goruco_response
     assert_response :success
   end
 
   test "should update response" do
-    patch :update, id: @response, response: { city: @response.city, state: @response.state, stay: @response.stay, thoughts: @response.thoughts, years_using_ruby: @response.years_using_ruby }
+    patch :update, id: @goruco_response, response: { city: @goruco_response.city, state: @goruco_response.state, stay: @goruco_response.stay, thoughts: @goruco_response.thoughts, years_using_ruby: @goruco_response.years_using_ruby }
     assert_redirected_to response_path(assigns(:response))
   end
 
   test "should destroy response" do
     assert_difference('Response.count', -1) do
-      delete :destroy, id: @response
+      delete :destroy, id: @goruco_response
     end
 
     assert_redirected_to responses_path

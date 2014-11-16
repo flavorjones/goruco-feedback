@@ -15,7 +15,7 @@ class ResponsesController < ApplicationController
   # GET /responses/new
   def new
     @response = Response.new
-    Talk.all.each do |talk|
+    Talk.order(:id).each do |talk|
       @response.talk_responses.build talk: talk
     end
   end

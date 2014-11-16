@@ -6,6 +6,20 @@ body {
   line-height: 18px;
 }
 
+table, td {
+  border: 1px solid #ddd ;
+  border-collapse: collapse ;
+  padding: 5px ;
+}
+
+.bold {
+  font-weight: bold ;
+}
+
+.left {
+  float: left ;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;

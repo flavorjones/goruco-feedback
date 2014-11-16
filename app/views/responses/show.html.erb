@@ -21,9 +21,18 @@
 </p>
 
 <p>
-  <% @response.talk_responses.each do |talk_response| %>
-    <%= talk_response.talk.speaker %>
-  <% end %>
+  <strong>Scores:</strong>
+  <table>
+    <% @response.talk_responses.each do |talk_response| %>
+      <tr><td>
+      <%= talk_response.speaker %>: <%= talk_response.title %>
+      <td>
+      <%= talk_response.score %>
+      <td>
+      <%= talk_response.comment %>
+      </tr>
+    <% end %>
+  </table>
 </p>
 
 <p>

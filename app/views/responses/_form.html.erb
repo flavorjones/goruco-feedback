@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field left">
     <%= f.label :years_using_ruby %><br>
     <%= f.text_field :years_using_ruby %>
   </div>
-  <div class="field" style="float:left">
+  <div class="field left">
     <%= f.label :city %><br>
     <%= f.text_field :city %>
   </div>
-  <div class="field">
+  <div class="field left">
     <%= f.label :state %><br>
     <%= f.text_field :state %>
   </div>
@@ -29,23 +29,29 @@
   </div>
 
   <% @response.talk_responses.each do |talk_response| %>
+    <hr>
     <div>
-      <%= talk_response.speaker %>: <%= talk_response.title %>
+      <div class="bold">
+        <%= talk_response.speaker %>: <%= talk_response.title %>
+      </div>
       <div class="field">
         <%= f.fields_for :talk_responses, talk_response do |trf| %>
-          <%= trf.hidden_field :id %>
-          <%= trf.hidden_field :talk_id %>
           <%= trf.radio_button :score, 1 %>1
           <%= trf.radio_button :score, 2 %>2
           <%= trf.radio_button :score, 3 %>3
           <%= trf.radio_button :score, 4 %>4
           <%= trf.radio_button :score, 5 %>5
+
           <%= trf.text_area :comment %>
+
+          <%= trf.hidden_field :id %>
+          <%= trf.hidden_field :talk_id %>
         <% end %>
       </div>
     </div>
   <% end %>
 
+  <hr>
   <div class="field">
     <%= f.label :thoughts %><br>
     <%= f.text_area :thoughts %>

@@ -6,10 +6,20 @@ body {
   line-height: 18px;
 }
 
-table, td {
+table, td, th {
   border: 1px solid #ddd ;
   border-collapse: collapse ;
   padding: 5px ;
+}
+
+
+thead {
+  background: #000 ;
+  color: #fff ;
+}
+
+tbody tr:nth-child(even) {
+  background: #eef ;
 }
 
 .bold {

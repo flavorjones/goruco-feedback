@@ -23,15 +23,19 @@
 <p>
   <strong>Scores:</strong>
   <table>
-    <% @response.talk_responses.each do |talk_response| %>
-      <tr><td>
-      <%= talk_response.speaker %>: <%= talk_response.title %>
-      <td>
-      <%= talk_response.score %>
-      <td>
-      <%= talk_response.comment %>
-      </tr>
-    <% end %>
+    <thead>
+      <tr>
+        <th>Speaker & Title
+        <th>Score
+        <th>Comment
+    <tbody>
+      <% @response.talk_responses.each do |talk_response| %>
+        <tr>
+          <td> <%= talk_response.speaker %>: <%= talk_response.title %>
+          <td> <%= talk_response.score %>
+          <td> <%= talk_response.comment %>
+        </tr>
+      <% end %>
   </table>
 </p>
 

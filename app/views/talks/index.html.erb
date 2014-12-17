@@ -5,6 +5,9 @@
     <tr>
       <th>Speaker</th>
       <th>Title</th>
+      <th>Min/Avg/Max
+      <th># Reviews
+      <th>Comments
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +17,15 @@
       <tr>
         <td><%= talk.speaker %></td>
         <td><%= talk.title %></td>
+        <td><%= talk.min %> / <%= talk.avg %> / <%= talk.max %></td>
+        <td><%= talk.scores.length %></td>
+        <td>
+          <table>
+            <% talk.comments.each do |comment| %>
+              <tr><td><%= comment %>
+            <% end %>
+          </table>
+        </td>
         <td><%= link_to 'Show', talk %></td>
         <td><%= link_to 'Edit', edit_talk_path(talk) %></td>
         <td><%= link_to 'Destroy', talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -10,8 +10,19 @@ class Talk < ActiveRecord::Base
     scores.min
   end
 
-  def avg
-    scores.inject(0) { |sum, score| sum += score }.to_f / scores.length
+  def sum
+    scores.inject(0) { |accum, score| accum += score }
+  end
+  private :sum
+
+  def mean
+    sum.to_f / scores.length
+  end
+
+  def stddev
+    m = mean
+    sum = scores.inject(0) {|accum, score| accum +(score-m)**2 }
+    sum/(scores.length - 1).to_f
   end
 
   def max

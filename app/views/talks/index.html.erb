@@ -5,7 +5,7 @@
     <tr>
       <th>Speaker</th>
       <th>Title</th>
-      <th>Min/Avg/Max
+      <th>Avg/Dev
       <th># Reviews
       <th colspan="3"></th>
     </tr>
@@ -16,7 +16,10 @@
       <tr>
         <td><%= talk.speaker %></td>
         <td><%= talk.title %></td>
-        <td><%= talk.min %> / <%= sprintf "%.2f", talk.avg %> / <%= talk.max %></td>
+        <td>
+          <%= sprintf "%.2f", talk.mean %> /
+          <%= sprintf "%.2f", talk.stddev %>
+        </td>
         <td><%= talk.scores.length %></td>
         <td><%= link_to 'Show', talk %></td>
         <td><%= link_to 'Edit', edit_talk_path(talk) %></td>

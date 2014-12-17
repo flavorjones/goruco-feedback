@@ -10,5 +10,14 @@
   <%= @talk.title %>
 </p>
 
+<p>
+  <strong>Comments:</strong>
+  <table>
+    <% @talk.comments.each do |comment| %>
+      <tr><td><%= comment %>
+    <% end %>
+  </table>
+</p>
+
 <%= link_to 'Edit', edit_talk_path(@talk) %> |
 <%= link_to 'Back', talks_path %>

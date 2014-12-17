@@ -3,7 +3,7 @@ class Talk < ActiveRecord::Base
   has_many :talk_responses
 
   def scores
-    @scores ||= talk_responses.collect(&:score).collect(&:to_i)
+    @scores ||= talk_responses.collect(&:score).select(&:present?).collect(&:to_i)
   end
 
   def min
